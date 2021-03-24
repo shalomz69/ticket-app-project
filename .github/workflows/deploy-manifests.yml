@@ -21,7 +21,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      - run: docker push sharky321/auth sharky321/client sharky321/expiration sharky321/orders sharky321/payments sharky321/tickets
+      - run: docker push --all-tags
       - uses: digitalocean/action-doctl@v2
         with: 
           token:  ${{ secrets.DIGITALOCEAN_TOKEN }}
