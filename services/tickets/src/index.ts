@@ -20,7 +20,7 @@ const start = async () => {
   }
   if (!process.env.NATS_CLUSTER_ID) {
     throw new Error('NATS_CLUSTER_ID must be defined');
-  } 
+  }
 
   try {
     await natsWrapper.connect(
@@ -37,7 +37,7 @@ const start = async () => {
 
     new OrderCreatedListener(natsWrapper.client).listen();
     new OrderCancelledListener(natsWrapper.client).listen();
-    
+
     await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -49,7 +49,7 @@ const start = async () => {
   }
 
   app.listen(3000, () => {
-    console.log('Listening on port 3000!!!!!!!!');
+    console.log('Listening on port 3000 on tickets apppp !!!!!!!!');
   });
 };
 
