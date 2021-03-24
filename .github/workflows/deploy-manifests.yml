@@ -10,6 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: cd services/auth && docker build -t sharky321/auth .
+      - run: cd services/client && docker build -t sharky321/client .
+      - run: cd services/expiration && docker build -t sharky321/expiration .
+      - run: cd services/orders && docker build -t sharky321/orders .
+      - run: cd services/payments && docker build -t sharky321/payments .
+      - run: cd services/tickets && docker build -t sharky321/tickets .
+      
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_TOKEN
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+      - run: docker push sharky321/auth sharky321/client sharky321/expiration sharky321/orders sharky321/payments sharky321/tickets
       - uses: digitalocean/action-doctl@v2
         with: 
           token:  ${{ secrets.DIGITALOCEAN_TOKEN }}
