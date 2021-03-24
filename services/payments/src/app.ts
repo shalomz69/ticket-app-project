@@ -18,7 +18,10 @@ app.use(
     secure: false,
   })
 );
+
+
 app.use(currentUser);
+
 app.use(createChargeRouter);
 
 app.all('*', async (req, res) => {
