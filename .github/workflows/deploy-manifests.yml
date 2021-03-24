@@ -15,7 +15,7 @@ jobs:
           token:  ${{ secrets.DIGITALOCEAN_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save ticketing-cluster
       # - run: kubectl apply -f infra/k8s  && kubectl apply -f infra/k8s-prod
-      - run: helm repo add nginx-stable https://helm.nginx.com/stable && helm repo update && helm upgrade --install nginx-ing nginx-stable/nginx-ingress
+#       - run: helm repo add nginx-stable https://helm.nginx.com/stable && helm repo update && helm upgrade --install nginx-ing nginx-stable/nginx-ingress
       - run: helm upgrade --install tick-app ticket-chart
           
           
