@@ -20,7 +20,6 @@ app.use(
 );
 
 app.use(currentUser);
-
 app.use(createChargeRouter);
 
 app.all('*', async (req, res) => {
