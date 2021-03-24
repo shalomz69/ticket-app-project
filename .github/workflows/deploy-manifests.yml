@@ -15,6 +15,7 @@ jobs:
           token:  ${{ secrets.DIGITALOCEAN_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save ticketing-cluster
       # - run: kubectl apply -f infra/k8s  && kubectl apply -f infra/k8s-prod
+      - run: helm install ingress-nginx/ingress-nginx --generate-name
       - run: helm install tick-app ticket-chart
           
           
