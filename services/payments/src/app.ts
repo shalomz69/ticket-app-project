@@ -18,13 +18,13 @@ app.use(
     secure: false,
   })
 );
- 
+
 app.use(currentUser);
 app.use(createChargeRouter);
- 
+
 app.all('*', async (req, res) => {
   throw new NotFoundError();
-}); 
+});
 
 app.use(errorHandler);
 
