@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "ticket-chart.fullname" . }}payments-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "ticket-chart.fullname" . }}payments-mongo
+  template:
+    metadata:
+      labels:
+        app: {{ template "ticket-chart.fullname" . }}payments-mongo
+    spec:
+      containers:
+        - name: {{ template "ticket-chart.fullname" . }}payments-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "ticket-chart.fullname" . }}payments-mongo-srv
+spec:
+  selector:
+    app: {{ template "ticket-chart.fullname" . }}payments-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

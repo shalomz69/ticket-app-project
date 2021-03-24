@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "ticket-chart.fullname" . }}auth-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "ticket-chart.fullname" . }}auth-mongo
+  template:
+    metadata:
+      labels:
+        app: {{ template "ticket-chart.fullname" . }}auth-mongo
+    spec:
+      containers:
+        - name: {{ template "ticket-chart.fullname" . }}auth-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "ticket-chart.fullname" . }}auth-mongo-srv
+spec:
+  selector:
+    app: {{ template "ticket-chart.fullname" . }}auth-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

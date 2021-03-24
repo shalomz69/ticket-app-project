@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "ticket-chart.fullname" . }}client-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "ticket-chart.fullname" . }}client
+  template:
+    metadata:
+      labels:
+        app: {{ template "ticket-chart.fullname" . }}client
+    spec:
+      containers:
+        - name: {{ template "ticket-chart.fullname" . }}client
+          #image: us.gcr.io/ticketing-dev-306211/client
+          image: sharky321/client
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "ticket-chart.fullname" . }}client-srv
+spec:
+  selector:
+    app: {{ template "ticket-chart.fullname" . }}client
+  ports:
+    - name: {{ template "ticket-chart.fullname" . }}client
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
