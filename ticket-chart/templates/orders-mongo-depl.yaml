@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}orders-mongo-depl
+  name: orders-mongo-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "ticket-chart.fullname" . }}orders-mongo
+      app: orders-mongo
   template:
     metadata:
       labels:
-        app: {{ template "ticket-chart.fullname" . }}orders-mongo
+        app: orders-mongo
     spec:
       containers:
-        - name: {{ template "ticket-chart.fullname" . }}orders-mongo
+        - name: orders-mongo
           image: mongo
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}orders-mongo-srv
+  name: orders-mongo-srv
 spec:
   selector:
-    app: {{ template "ticket-chart.fullname" . }}orders-mongo
+    app: orders-mongo
   ports:
     - name: db
       protocol: TCP

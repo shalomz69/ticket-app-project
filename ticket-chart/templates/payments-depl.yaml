@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}payments-depl
+  name: payments-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "ticket-chart.fullname" . }}payments
+      app: payments
   template:
     metadata:
       labels:
-        app: {{ template "ticket-chart.fullname" . }}payments
+        app: payments
     spec:
       containers:
-        - name: {{ template "ticket-chart.fullname" . }}payments
+        - name: payments
           image: sharky321/payments
           env:
             - name: NATS_CLIENT_ID
@@ -21,11 +21,11 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: NATS_URL
-              value: 'http://{{ template "ticket-chart.fullname" . }}nats-srv:4222'
+              value: 'http://nats-srv:4222'
             - name: NATS_CLUSTER_ID
               value: ticketing
             - name: MONGO_URI
-              value: 'mongodb://{{ template "ticket-chart.fullname" . }}payments-mongo-srv:27017/payments'
+              value: 'mongodb://payments-mongo-srv:27017/payments'
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
@@ -40,12 +40,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}payments-srv
+  name: payments-srv
 spec:
   selector:
-    app: {{ template "ticket-chart.fullname" . }}payments
+    app: payments
   ports:
-    - name: {{ template "ticket-chart.fullname" . }}payments
+    - name: payments
       protocol: TCP
       port: 3000
       targetPort: 3000

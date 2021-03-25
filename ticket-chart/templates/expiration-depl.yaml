@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}expiration-depl
+  name: expiration-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "ticket-chart.fullname" . }}expiration
+      app: expiration
   template:
     metadata:
       labels:
-        app: {{ template "ticket-chart.fullname" . }}expiration
+        app: expiration
     spec:
       containers:
-        - name: {{ template "ticket-chart.fullname" . }}expiration
+        - name: expiration
           image: sharky321/expiration
           # image: us.gcr.io/ticketing-dev-306211/expiration
           env:
@@ -22,8 +22,8 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: NATS_URL
-              value: 'http://{{ template "ticket-chart.fullname" . }}nats-srv:4222'
+              value: 'http://nats-srv:4222'
             - name: NATS_CLUSTER_ID
               value: ticketing
             - name: REDIS_HOST
-              value: {{ template "ticket-chart.fullname" . }}expiration-redis-srv
+              value: expiration-redis-srv

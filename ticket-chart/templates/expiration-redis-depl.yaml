@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}expiration-redis-depl
+  name: expiration-redis-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "ticket-chart.fullname" . }}expiration-redis
+      app: expiration-redis
   template:
     metadata:
       labels:
-        app: {{ template "ticket-chart.fullname" . }}expiration-redis
+        app: expiration-redis
     spec:
       containers:
-        - name: {{ template "ticket-chart.fullname" . }}expiration-redis
+        - name: expiration-redis
           image: redis
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}expiration-redis-srv
+  name: expiration-redis-srv
 spec:
   selector:
-    app: {{ template "ticket-chart.fullname" . }}expiration-redis
+    app: expiration-redis
   ports:
     - name: db
       protocol: TCP

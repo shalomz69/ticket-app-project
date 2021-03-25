@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}auth-depl
+  name: auth-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "ticket-chart.fullname" . }}auth
+      app: auth
   template:
     metadata:
       labels:
-        app: {{ template "ticket-chart.fullname" . }}auth
+        app: auth
     spec:
       containers:
-        - name: {{ template "ticket-chart.fullname" . }}auth
+        - name: auth
           image: sharky321/auth
           #image: us.gcr.io/ticketing-dev-306211/auth
           env:
@@ -26,10 +26,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}auth-srv
+  name: auth-srv
 spec:
   selector:
-    app: {{ template "ticket-chart.fullname" . }}auth
+    app: auth
   ports:
     - name: auth
       protocol: TCP

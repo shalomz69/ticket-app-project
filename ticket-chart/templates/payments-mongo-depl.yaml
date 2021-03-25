@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}payments-mongo-depl
+  name: payments-mongo-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "ticket-chart.fullname" . }}payments-mongo
+      app: payments-mongo
   template:
     metadata:
       labels:
-        app: {{ template "ticket-chart.fullname" . }}payments-mongo
+        app: payments-mongo
     spec:
       containers:
-        - name: {{ template "ticket-chart.fullname" . }}payments-mongo
+        - name: payments-mongo
           image: mongo
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}payments-mongo-srv
+  name: payments-mongo-srv
 spec:
   selector:
-    app: {{ template "ticket-chart.fullname" . }}payments-mongo
+    app: payments-mongo
   ports:
     - name: db
       protocol: TCP

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}nats-depl
+  name: nats-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "ticket-chart.fullname" . }}nats
+      app: nats
   template:
     metadata:
       labels:
-        app: {{ template "ticket-chart.fullname" . }}nats
+        app: nats
     spec:
       containers:
-        - name: {{ template "ticket-chart.fullname" . }}nats
+        - name: nats
           image: nats-streaming:0.17.0
           args:
             [
@@ -35,10 +35,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}nats-srv
+  name: nats-srv
 spec:
   selector:
-    app: {{ template "ticket-chart.fullname" . }}nats
+    app: nats
   ports:
     - name: client
       protocol: TCP

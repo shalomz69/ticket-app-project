@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}orders-depl
+  name: orders-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "ticket-chart.fullname" . }}orders
+      app: orders
   template:
     metadata:
       labels:
-        app: {{ template "ticket-chart.fullname" . }}orders
+        app: orders
     spec:
       containers:
-        - name: {{ template "ticket-chart.fullname" . }}orders
+        - name: orders
           image: sharky321/orders
 
           # image: us.gcr.io/ticketing-dev-306211/orders
@@ -24,11 +24,11 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: NATS_URL
-              value: 'http://{{ template "ticket-chart.fullname" . }}nats-srv:4222'
+              value: 'http://nats-srv:4222'
             - name: NATS_CLUSTER_ID
               value: ticketing
             - name: MONGO_URI
-              value: 'mongodb://{{ template "ticket-chart.fullname" . }}orders-mongo-srv:27017/orders'
+              value: 'mongodb://orders-mongo-srv:27017/orders'
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
@@ -39,12 +39,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}orders-srv
+  name: orders-srv
 spec:
   selector:
-    app: {{ template "ticket-chart.fullname" . }}orders
+    app: orders
   ports:
-    - name: {{ template "ticket-chart.fullname" . }}orders
+    - name: orders
       protocol: TCP
       port: 3000
       targetPort: 3000

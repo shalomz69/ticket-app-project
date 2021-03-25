@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}client-depl
+  name: client-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "ticket-chart.fullname" . }}client
+      app: client
   template:
     metadata:
       labels:
-        app: {{ template "ticket-chart.fullname" . }}client
+        app: client
     spec:
       containers:
-        - name: {{ template "ticket-chart.fullname" . }}client
+        - name: client
           #image: us.gcr.io/ticketing-dev-306211/client
           image: sharky321/client
           env:
@@ -27,12 +27,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "ticket-chart.fullname" . }}client-srv
+  name: client-srv
 spec:
   selector:
-    app: {{ template "ticket-chart.fullname" . }}client
+    app: client
   ports:
-    - name: {{ template "ticket-chart.fullname" . }}client
+    - name: client
       protocol: TCP
       port: 3000
       targetPort: 3000
