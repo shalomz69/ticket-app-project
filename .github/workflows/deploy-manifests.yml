@@ -44,4 +44,4 @@ jobs:
       # - run:  helm repo update
       # - run: cd ticket-chart &&  helm install .
 
-      - run: cd ticket-chart && helm upgrade  --install --recreate-pods tick-app ticket-chart
+      - run: cd ticket-chart && helm upgrade  --install --recreate-pods tick-app .
