@@ -9,7 +9,7 @@ spec:
   rules:
     host: www.ticket-app-sz.website
     http:
-      paths:
+    - paths:
         path: /api/payments/?(.*)
         backend:
           service:
