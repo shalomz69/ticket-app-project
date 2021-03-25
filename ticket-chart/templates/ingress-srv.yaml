@@ -7,38 +7,38 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
   rules:
-    host: www.ticket-app-sz.website
+  - host: www.ticket-app-sz.website
     http:
-    - paths:
+      paths:
         path: /api/payments/?(.*)
         backend:
           service:
             name: {{ template "ticket-chart.fullname" . }}payments-srv
-            - port:
+            port:
               number: 3000
         path: /api/users/?(.*)
         backend:
           service:
             name: {{ template "ticket-chart.fullname" . }}auth-srv
-            - port:
+            port:
               number: 3000
         path: /api/tickets/?(.*)
         backend:
           service:
             name: {{ template "ticket-chart.fullname" . }}tickets-srv
-            - port:
+            port:
               number: 3000
         path: /api/orders/?(.*)
         backend:
           service:
             name: {{ template "ticket-chart.fullname" . }}orders-srv
-            - port:
+            port:
               number: 3000
         path: /?(.*)
         backend:
           service:
             name: {{ template "ticket-chart.fullname" . }}client-srv
-            - port:
+            port:
               number: 3000
 # ---
 # apiVersion: v1
