@@ -5,8 +5,8 @@ export default ({ req }) => {
     // We are on the server
 
     return axios.create({
-      //baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
-      baseURL: 'http://www.ticket-app-sz.website/',
+      baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+      //baseURL: 'http://www.ticket-app-sz.website/',
       headers: req.headers
     });
   } else {
