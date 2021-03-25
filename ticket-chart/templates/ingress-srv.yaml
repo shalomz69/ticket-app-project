@@ -10,37 +10,37 @@ spec:
     - host: www.ticket-app-sz.website
       http:
         paths:
-        - pathType: Prefix
-        - path: /api/payments/?(.*)
-          backend:
-            service:
-              name: payments-srv
-              port:
-                number: 3000
-        - path: /api/users/?(.*)
-          backend:
-            service:
-              name: auth-srv
-              port:
-                number: 3000
-        - path: /api/tickets/?(.*)
-          backend:
-            service:
-              name: tickets-srv
-              port:
-                number: 3000
-        - path: /api/orders/?(.*)
-          backend:
-            service:
-              name: orders-srv
-              port:
-                number: 3000
-        - path: /?(.*)
-          backend:
-            service:
-              name: client-srv
-              port:
-                number: 3000
+          - pathType: Prefix
+            # path: /api/payments/?(.*)
+            # backend:
+            #   service:
+            #     name: payments-srv
+            #     port:
+            #       number: 3000
+            # path: /api/users/?(.*)
+            # backend:
+            #   service:
+            #     name: auth-srv
+            #     port:
+            #       number: 3000
+            # # path: /api/tickets/?(.*)
+            # # backend:
+            # #   service:
+            # #     name: tickets-srv
+            # #     port:
+            # #       number: 3000
+            # # path: /api/orders/?(.*)
+            # # backend:
+            # #   service:
+            # #     name: orders-srv
+            # #     port:
+            # #       number: 3000
+            path: /?(.*)
+            backend:
+              service:
+                name: client-srv
+                port:
+                  number: 3000
 # ---
 # apiVersion: v1
 # kind: Service
