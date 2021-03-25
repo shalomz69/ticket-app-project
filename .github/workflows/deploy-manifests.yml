@@ -34,7 +34,7 @@ jobs:
       - run: helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && helm repo update
       - run: helm upgrade --install  nginx-ingress ingress-nginx/ingress-nginx --set controller.publishService.enabled=true
       - run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.34.1/deploy/static/provider/cloud/deploy.yaml
-      - run: kubectl delete validatingwebhookconfigurations ingress-nginx-admission  nginx-ingress-ingress-nginx-admission
+#       - run: kubectl delete validatingwebhookconfigurations ingress-nginx-admission  nginx-ingress-ingress-nginx-admission
 #       - run:  kubectl delete validatingwebhookconfigurations nginx-ingress-ingress-nginx-admission
       # - run: kubectl apply -f infra/k8s  && kubectl apply -f infra/k8s-prod
 #       - run: helm repo add nginx-stable https://helm.nginx.com/stable && helm repo update && helm upgrade --install nginx-ing nginx-stable/nginx-ingress
