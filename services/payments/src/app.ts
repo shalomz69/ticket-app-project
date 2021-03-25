@@ -16,17 +16,16 @@ app.use(
   cookieSession({
     signed: false,
     secure: false,
-  })  
-); 
- 
+  })
+);
+
 app.use(currentUser);
-app.use(createChargeRouter); 
+app.use(createChargeRouter);
 
 app.all('*', async (req, res) => {
   throw new NotFoundError();
-});   
-    
-app.use(errorHandler); 
+});
 
-export { app }; 
-  
+app.use(errorHandler);
+
+export { app };
