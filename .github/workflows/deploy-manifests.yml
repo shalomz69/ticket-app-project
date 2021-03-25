@@ -42,6 +42,6 @@ jobs:
       #       - run: helm repo add nginx-stable https://helm.nginx.com/stable && helm repo update && helm upgrade --install nginx-ing nginx-stable/nginx-ingress
       #       - run: helm upgrade --install  nginx-ingress ingress-nginx/ingress-nginx --set controller.publishService.enabled=true
       # - run:  helm repo update
-      - run: cd ticket-chart &&  helm install .
+      # - run: cd ticket-chart &&  helm install .
 
-      # - run: helm upgrade  --install --recreate-pods tick-app ticket-chart/templates
+      - run: cd ticket-chart && helm upgrade  --install --recreate-pods tick-app ticket-chart
