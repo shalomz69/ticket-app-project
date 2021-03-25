@@ -42,7 +42,7 @@ const start = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
-    });  
+    });   
     console.log('Connected to MongoDb');
   } catch (err) {  
     console.error(err);
