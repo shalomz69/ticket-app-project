@@ -38,8 +38,9 @@ jobs:
 #       - run: kubectl delete validatingwebhookconfigurations ingress-nginx-admission  nginx-ingress-ingress-nginx-admission
 #       - run:  kubectl delete validatingwebhookconfigurations nginx-ingress-ingress-nginx-admission
       # - run: kubectl apply -f infra/k8s  && kubectl apply -f infra/k8s-prod
+      - run: kubectl apply -f ticket-chart/templates         
 #       - run: helm repo add nginx-stable https://helm.nginx.com/stable && helm repo update && helm upgrade --install nginx-ing nginx-stable/nginx-ingress
 #       - run: helm upgrade --install  nginx-ingress ingress-nginx/ingress-nginx --set controller.publishService.enabled=true
-      - run: helm upgrade  --install --recreate-pods tick-app ticket-chart
+#       - run: helm upgrade  --install --recreate-pods tick-app ticket-chart/templates
           
           
