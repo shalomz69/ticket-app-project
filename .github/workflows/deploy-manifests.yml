@@ -10,23 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd services/auth && docker build -t sharky321/auth .
-      - run: cd client && docker build -t sharky321/client .
-      - run: cd services/expiration && docker build -t sharky321/expiration .
-      - run: cd services/orders && docker build -t sharky321/orders .
-      - run: cd services/payments && docker build -t sharky321/payments .
-      - run: cd services/tickets && docker build -t sharky321/tickets .
+      # - run: cd services/auth && docker build -t sharky321/auth .
+      # - run: cd client && docker build -t sharky321/client .
+      # - run: cd services/expiration && docker build -t sharky321/expiration .
+      # - run: cd services/orders && docker build -t sharky321/orders .
+      # - run: cd services/payments && docker build -t sharky321/payments .
+      # - run: cd services/tickets && docker build -t sharky321/tickets .
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_TOKEN
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      - run: docker push sharky321/auth
-      - run: docker push sharky321/client
-      - run: docker push sharky321/expiration
-      - run: docker push sharky321/orders
-      - run: docker push sharky321/payments
-      - run: docker push sharky321/tickets
+      # - run: docker push sharky321/auth
+      # - run: docker push sharky321/client
+      # - run: docker push sharky321/expiration
+      # - run: docker push sharky321/orders
+      # - run: docker push sharky321/payments
+      # - run: docker push sharky321/tickets
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_TOKEN }}
@@ -41,5 +41,7 @@ jobs:
       # - run: kubectl apply -f ticket-chart/templates
       #       - run: helm repo add nginx-stable https://helm.nginx.com/stable && helm repo update && helm upgrade --install nginx-ing nginx-stable/nginx-ingress
       #       - run: helm upgrade --install  nginx-ingress ingress-nginx/ingress-nginx --set controller.publishService.enabled=true
-      - run:  helm repo update    
-      - run: helm upgrade  --install --recreate-pods tick-app ticket-chart/templates
+      # - run:  helm repo update
+      - run: cd ticket-chart &&  helm install .
+
+      # - run: helm upgrade  --install --recreate-pods tick-app ticket-chart/templates
