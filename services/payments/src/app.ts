@@ -16,7 +16,7 @@ app.use(
   cookieSession({
     signed: false,
     secure: false,
-  }) 
+  })
 );
 
 app.use(currentUser);
@@ -29,4 +29,3 @@ app.all('*', async (req, res) => {
 app.use(errorHandler);
 
 export { app };
- 
