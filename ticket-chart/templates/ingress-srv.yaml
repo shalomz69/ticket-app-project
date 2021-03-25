@@ -10,6 +10,7 @@ spec:
     - host: www.ticket-app-sz.website
       http:
         paths:
+          - pathType: Prefix
           - path: /api/payments/?(.*)
             backend:
               service:
