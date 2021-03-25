@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 #       - run: cd services/auth && docker build -t sharky321/auth .
-#       - run: cd client && docker build -t sharky321/client .
+      - run: cd client && docker build -t sharky321/client .
 #       - run: cd services/expiration && docker build -t sharky321/expiration .
 #       - run: cd services/orders && docker build -t sharky321/orders .
 #       - run: cd services/payments && docker build -t sharky321/payments .
@@ -22,7 +22,7 @@ jobs:
 #           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
 #           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
 #       - run: docker push sharky321/auth
-#       - run: docker push sharky321/client
+      - run: docker push sharky321/client
 #       - run: docker push sharky321/expiration
 #       - run: docker push sharky321/orders
 #       - run: docker push sharky321/payments
