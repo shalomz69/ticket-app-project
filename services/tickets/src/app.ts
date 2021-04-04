@@ -12,7 +12,7 @@ import { showTicketRouter } from './routes/show';
 import { indexTicketRouter } from './routes/index';
 import { updateTicketRouter } from './routes/update';
 import cors from 'cors'
- 
+  
 const app = express();
 app.set('trust proxy', true);
 app.use(json());
