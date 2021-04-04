@@ -6,12 +6,14 @@ import { signupRouter } from './routes/signup';
 import { currentUserRouter } from './routes/current-user';
 import { errorHandler, NotFoundError } from '@szszsztickets/common';
 import cookieSession from 'cookie-session';
+import cors from 'cors';
 
 const app = express();
 app.set('trust proxy', true);
 app.use(
   cookieSession({ signed: false, secure: false })
 );
+app.use(cors());
 app.use(json());
 app.use(signinRouter);
 app.use(signoutRouter);
