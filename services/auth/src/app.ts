@@ -18,7 +18,7 @@ app.use(
 app.all('*', (req: Request, res: Response, next:NextFunction) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header( "Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Headers: Content-Type, *");
+  res.header("Access-Control-Allow-Headers", "Authorization,Content-Type,Accept,Origin,User-Agent,DNT,Cache-Control,X-Mx-ReqToken,Keep-Alive,X-Requested-With,If-Modified-Since");
   next();
 });
 app.use(json());
