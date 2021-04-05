@@ -14,13 +14,13 @@ app.set('trust proxy', true);
 app.use(
   cookieSession({ signed: false, secure: false })
 );
-//app.use(cors());
-app.all('*', (req: Request, res: Response, next:NextFunction) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header( "Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Headers", "Authorization,Content-Type,Accept,Origin,User-Agent,DNT,Cache-Control,X-Mx-ReqToken,Keep-Alive,X-Requested-With,If-Modified-Since");
-  next();
-});
+app.use(cors());
+// app.all('*', (req: Request, res: Response, next:NextFunction) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   //res.header( "Access-Control-Allow-Credentials", "true");
+//   res.header("Access-Control-Allow-Headers", "Authorization,Content-Type,Accept,Origin,User-Agent,DNT,Cache-Control,X-Mx-ReqToken,Keep-Alive,X-Requested-With,If-Modified-Since");
+//   next();
+// });
 app.use(json());
 app.use(signinRouter);
 app.use(signoutRouter);
