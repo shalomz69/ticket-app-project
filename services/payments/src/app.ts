@@ -8,11 +8,9 @@ import {
   currentUser,
 } from '@szszsztickets/common';
 import { createChargeRouter } from './routes/new';
-import cors from 'cors';
 
 const app = express();
 app.set('trust proxy', true);
-app.use(cors())
 app.use(json());
 app.use(
   cookieSession({

@@ -26,8 +26,6 @@
     "@types/mongoose": "^5.10.3",
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
-    "cors": "^2.8.5",
-    "@types/cors": "^2.8.10",
     "express-async-errors": "^3.1.1",
     "express-validator": "^6.10.0",
     "jsonwebtoken": "^8.5.1",

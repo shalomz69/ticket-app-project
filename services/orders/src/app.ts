@@ -8,13 +8,9 @@ import { deleteOrderRouter } from './routes/delete';
 import { indexOrderRouter } from './routes/index';
 import { newOrderRouter } from './routes/new';
 import { showOrderRouter } from './routes/show';
-import cors from 'cors';
-
 
 const app = express();
 app.set('trust proxy', true);
-app.use(cors());
-
 app.use(json());
 app.use(
   cookieSession({
