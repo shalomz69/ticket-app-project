@@ -13,7 +13,7 @@ app.set('trust proxy', true);
 app.use(
   cookieSession({ signed: false, secure: false })
 );
-app.use(cors());
+//app.use(cors());
 app.use(json());
 app.use(signinRouter);
 app.use(signoutRouter);
