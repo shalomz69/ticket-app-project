@@ -20,7 +20,7 @@ app.use(
     signed: false,
     secure: false,
   }) 
-);
+); 
 app.use(currentUser);
 
 app.use(createTicketRouter);
