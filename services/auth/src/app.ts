@@ -21,5 +21,5 @@ app.use(currentUserRouter);
 app.all('*', () => {
   throw new NotFoundError();
 });
-app.use(errorHandler);
+app.use(errorHandler); 
 export { app };
