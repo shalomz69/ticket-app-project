@@ -18,8 +18,8 @@ Project is created with:
 * Digital Ocean
 
 ## Architechture
-The application is of Microservices architecture: 
-Services seperated as:Services seperated as:
+The application is of Microservices architecture. 
+Services are seperated as:
 * Authorisation service.
 * Ticket service.
 * Order service.
