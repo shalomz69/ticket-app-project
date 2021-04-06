@@ -31,10 +31,6 @@ jobs:
         with:
           token: ${{ secrets.DIGITALOCEAN_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save ticketing-cluster
-#       - run: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.44.0/deploy/static/provider/cloud/deploy.yaml
-#       - run: kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
-      # - run: kubectl delete validatingwebhookconfigurations ingress-nginx-admission
-
       - run: kubectl apply -f ticket-chart/templates
 
 
