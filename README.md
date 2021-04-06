@@ -5,6 +5,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Architechture](#architechture)
+* [Deployment](#deployment)
 
 ## General info
 This app is a market place for selling and buying tickets
@@ -26,7 +27,9 @@ Services seperated as:Services seperated as:
 * Expiration service.
 
 Communication between the services is through through the Nats Event Bus.
-Service are Dockerised and deployed with a Kubernetes cluser on DigitalOcean cloud.
+
+## Deployment
+Services are Dockerised and deployed with a Kubernetes cluser on DigitalOcean cloud.
 
 
 
