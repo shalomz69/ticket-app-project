@@ -5,6 +5,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Architechture](#architechture)
+* [Design](#design)
 * [Deployment](#deployment)
 
 ## General info
@@ -27,6 +28,10 @@ Services are seperated as:
 * Expiration service.
 
 Communication between the services is through through the Nats Event Bus.
+
+## Design
+
+![uml](https://user-images.githubusercontent.com/62481232/114170224-48e4b380-993b-11eb-801b-d23e8b49976f.PNG)
 
 ## Deployment
 Services are Dockerised and deployed with a Kubernetes cluser on DigitalOcean cloud.
