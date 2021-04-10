@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response,NextFunction } from 'express';
 import 'express-async-errors';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
@@ -21,6 +21,11 @@ app.use(
     secure: false,
   }) 
 ); 
+app.use(function(req:  Request, res: Response, next: NextFunction) {
+  var allowedOrigins = 'https://proj.ticket-app-sz.website';
+  res.header("Access-Control-Allow-Origin", allowedOrigins);
+  next();
+});
 app.use(currentUser);
 
 app.use(createTicketRouter);

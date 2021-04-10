@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response,NextFunction } from 'express';
 import { json } from 'body-parser';
 import { signinRouter } from './routes/signin';
 import { signoutRouter } from './routes/signout';
@@ -12,9 +12,14 @@ const app = express();
 app.set('trust proxy', true);
 app.use(
   cookieSession({ signed: false, secure: false })
-);
+  );
 app.use(json());
-app.use(cors())
+app.use(function(req:  Request, res: Response, next: NextFunction) {
+  var allowedOrigins = 'https://proj.ticket-app-sz.website';
+  res.header("Access-Control-Allow-Origin", allowedOrigins);
+  next();
+});
+//app.use(cors())
 app.use(signinRouter);
 app.use(signoutRouter);
 app.use(signupRouter);
