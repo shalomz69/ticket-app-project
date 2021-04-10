@@ -5,7 +5,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Architechture](#architechture)
-* [Design](#design)
+* [Architechture Diagram](#Architechture Diagram)
 * [Deployment](#deployment)
 
 ## General info
@@ -18,7 +18,7 @@ Project is created with:
 * Kubernetes
 * Digital Ocean
 
-## Architechture
+## Architechture Diagram
 The application is of Microservices architecture. 
 Services are seperated as:
 * Authorisation service.
