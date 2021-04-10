@@ -5,7 +5,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Architechture](#architechture)
-* [Architechture Diagram](#Architechture Diagram)
+* [Architechture Diagram](#architechture-diagram)
 * [Deployment](#deployment)
 
 ## General info
@@ -18,7 +18,7 @@ Project is created with:
 * Kubernetes
 * Digital Ocean
 
-## Architechture Diagram
+## Architechture
 The application is of Microservices architecture. 
 Services are seperated as:
 * Authorisation service.
@@ -29,7 +29,7 @@ Services are seperated as:
 
 Communication between the services is through through the Nats Event Bus.
 
-## Design
+## Architechture Diagram
 
 ![uml](https://user-images.githubusercontent.com/62481232/114170224-48e4b380-993b-11eb-801b-d23e8b49976f.PNG)
 
