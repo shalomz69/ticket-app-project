@@ -11,19 +11,21 @@ import cors from 'cors'
 const app = express();
 app.set('trust proxy', true);
 app.use(
-  cookieSession({ signed: false, secure: false,domain: 'ticket-app-sz.website', sameSite: 'none'  })
+  cookieSession({ signed: false, secure: false
+    //,domain: 'ticket-app-sz.website', sameSite: 'none' 
+   })
   );
 app.use(json());
-app.use(function(req:  Request, res: Response, next: NextFunction) {
-  var allowedOrigins = 'https://proj.ticket-app-sz.website';
-  res.header("Access-Control-Allow-Origin", allowedOrigins)
-  //res.setHeader("Access-Control-Allow-Origin", "*");
-res.setHeader("Access-Control-Allow-Credentials", "true");
-res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-  ;
-  next();
-});
+// app.use(function(req:  Request, res: Response, next: NextFunction) {
+//   var allowedOrigins = 'https://proj.ticket-app-sz.website';
+//   res.header("Access-Control-Allow-Origin", allowedOrigins)
+//   //res.setHeader("Access-Control-Allow-Origin", "*");
+// res.setHeader("Access-Control-Allow-Credentials", "true");
+// res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+// res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+//   ;
+//   next();
+// });
 //app.use(cors())
 app.use(signinRouter);
 app.use(signoutRouter);
