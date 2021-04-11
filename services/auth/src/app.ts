@@ -14,8 +14,9 @@ app.use(
   cookieSession({ signed: false, secure: false
     //,domain: 'ticket-app-sz.website', sameSite: 'none' 
    })
-  );
+  ); 
 app.use(json());
+app.use(cors());
 // app.use(function(req:  Request, res: Response, next: NextFunction) {
 //   var allowedOrigins = 'https://proj.ticket-app-sz.website';
 //   res.header("Access-Control-Allow-Origin", allowedOrigins)
