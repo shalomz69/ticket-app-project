@@ -20,9 +20,9 @@ app.use(
   })
 );  
 app.use(function(req:  Request, res: Response, next: NextFunction) {
-  var allowedOrigins = 'ticket-app-sz.website';
-  res.header("Access-Control-Allow-Origin", allowedOrigins)
-  //res.setHeader("Access-Control-Allow-Origin", "*");
+ // var allowedOrigins = 'ticket-app-sz.website';
+ // res.header("Access-Control-Allow-Origin", allowedOrigins)
+  res.setHeader("Access-Control-Allow-Origin", "*");
 res.setHeader("Access-Control-Allow-Credentials", "true");
 res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
 res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
