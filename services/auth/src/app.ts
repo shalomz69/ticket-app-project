@@ -11,12 +11,19 @@ import cors from 'cors'
 const app = express();
 app.set('trust proxy', true);
 app.use(
-  cookieSession({ signed: false, secure: false
+  cookieSession({ signed: false, secure: true
     //,domain: 'ticket-app-sz.website', sameSite: 'none' 
    })
   ); 
 app.use(json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ['https://proj.ticket-app-sz.website', 'https://ticket-app-sz.website'],
+    methods: ['GET', 'POST'],
+    credentials: true,
+    exposedHeaders: ['set-cookie']
+  })
+) 
 // app.use(function(req:  Request, res: Response, next: NextFunction) {
 //   var allowedOrigins = 'https://proj.ticket-app-sz.website';
 //   res.header("Access-Control-Allow-Origin", allowedOrigins)
