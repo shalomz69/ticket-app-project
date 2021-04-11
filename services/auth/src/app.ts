@@ -18,7 +18,7 @@ app.use(
 app.use(json());
 app.use(
   cors({
-    origin: ['https://proj.ticket-app-sz.website', 'https://www.ticket-app-sz.website'],
+    origin: ['https://www.proj.ticket-app-sz.website', 'https://www.ticket-app-sz.website'],
     methods: ['GET', 'POST'],
     credentials: true,
     exposedHeaders: ['set-cookie']
