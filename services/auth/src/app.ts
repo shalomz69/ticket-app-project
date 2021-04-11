@@ -11,8 +11,7 @@ import cors from 'cors'
 const app = express();
 app.set('trust proxy', true);
 app.use(
-  cookieSession({ signed: false, secure: false
-    //,domain: 'ticket-app-sz.website', sameSite: 'none' 
+  cookieSession({ signed: false, secure: true ,domain: 'ticket-app-sz.website', sameSite: 'none' 
    })
   ); 
 app.use(json());
