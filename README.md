@@ -5,7 +5,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Architechture](#architechture)
-* [Design](#design)
+* [Architechture Diagram](#architechture-diagram)
 * [Deployment](#deployment)
 
 ## General info
@@ -29,7 +29,7 @@ Services are seperated as:
 
 Communication between the services is through through the Nats Event Bus.
 
-## Design
+## Architechture Diagram
 
 ![uml](https://user-images.githubusercontent.com/62481232/114170224-48e4b380-993b-11eb-801b-d23e8b49976f.PNG)
 
