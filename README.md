@@ -27,7 +27,7 @@ Services are seperated as:
 * Payment service.
 * Expiration service.
 
-Communication between the services is through through the Nats Event Bus.
+Communication between the services is through the Nats Event Bus.
 
 ## Architechture Diagram
 
